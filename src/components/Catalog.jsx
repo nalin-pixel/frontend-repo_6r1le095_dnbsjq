@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Heart, Search, SlidersHorizontal, Compare } from 'lucide-react'
+import { Heart, Search, SlidersHorizontal, GitCompare } from 'lucide-react'
 
 const backend = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'
 
@@ -105,7 +105,7 @@ export default function Catalog() {
                         <Heart className="h-4 w-4"/>
                       </button>
                       <button onClick={()=>toggleCompare(item._id)} aria-label="Comparar" className={`p-2 rounded-full border ${compare.has(item._id) ? 'text-blue-500 border-blue-500' : 'text-neutral-500 border-neutral-300 dark:border-neutral-700'}`}>
-                        <Compare className="h-4 w-4"/>
+                        <GitCompare className="h-4 w-4"/>
                       </button>
                     </div>
                     <button className="px-4 py-2 rounded-full bg-black text-white text-sm dark:bg-white dark:text-black">Configurar</button>
