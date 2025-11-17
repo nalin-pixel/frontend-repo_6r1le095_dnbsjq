@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Catalog from './components/Catalog'
@@ -6,20 +5,13 @@ import News from './components/News'
 import Chatbot from './components/Chatbot'
 
 function App() {
-  useEffect(() => {
-    // smooth scrolling
-    if ('scrollBehavior' in document.documentElement.style === false) {
-      import('scroll-behavior-polyfill')
-    }
-  }, [])
-
   const onPrimary = () => {
     const el = document.getElementById('catalogo')
     el?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 dark:bg-black dark:text-white">
+    <div className="min-h-screen scroll-smooth bg-white text-neutral-900 dark:bg-black dark:text-white">
       <Navbar />
       <main>
         <Hero onPrimary={onPrimary} />
