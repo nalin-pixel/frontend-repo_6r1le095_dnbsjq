@@ -1,7 +1,10 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Services from './components/Services'
 import Catalog from './components/Catalog'
 import News from './components/News'
+import CTA from './components/CTA'
+import Contact from './components/Contact'
 import Chatbot from './components/Chatbot'
 
 function App() {
@@ -15,8 +18,11 @@ function App() {
       <Navbar />
       <main>
         <Hero onPrimary={onPrimary} />
+        <Services />
         <Catalog />
         <News />
+        <CTA />
+        <Contact />
       </main>
       <footer id="contactos" className="border-t border-neutral-200 dark:border-neutral-800 py-12">
         <div className="mx-auto max-w-7xl px-6 text-sm flex flex-col md:flex-row items-center justify-between gap-4">
