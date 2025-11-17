@@ -1,26 +1,42 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Catalog from './components/Catalog'
+import News from './components/News'
+import Chatbot from './components/Chatbot'
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    // smooth scrolling
+    if ('scrollBehavior' in document.documentElement.style === false) {
+      import('scroll-behavior-polyfill')
+    }
+  }, [])
+
+  const onPrimary = () => {
+    const el = document.getElementById('catalogo')
+    el?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-white text-neutral-900 dark:bg-black dark:text-white">
+      <Navbar />
+      <main>
+        <Hero onPrimary={onPrimary} />
+        <Catalog />
+        <News />
+      </main>
+      <footer id="contactos" className="border-t border-neutral-200 dark:border-neutral-800 py-12">
+        <div className="mx-auto max-w-7xl px-6 text-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>© {new Date().getFullYear()} AMN LDA. Todos os direitos reservados.</div>
+          <div className="flex items-center gap-4 text-neutral-500">
+            <a href="#">RGPD</a>
+            <a href="#">Cookies</a>
+            <a href="#">Termos</a>
+          </div>
         </div>
-      </div>
+      </footer>
+      <Chatbot />
     </div>
   )
 }
